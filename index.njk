@@ -1,0 +1,32 @@
+---
+layout: layouts/main.njk
+---
+
+{% for page in search.pages('')%}
+  {%if page.data.url != "/"%}
+    <a href="{{page.data.url}}">
+        <article>
+            {%if page.data.cover%}
+            <figure class="cover">
+              <img src="{{page.data.cover}}" alt="">
+            </figure>
+            {%endif%}
+            <div class="content">
+              <hgroup>
+                <h5>{{page.data.title}}</h5>
+                
+                <p>
+                  {%if page.data.description%}
+                  {{page.data.description}} 
+                  {%endif%}
+                </p>
+                
+              </hgroup>
+              </div>
+        </article>
+    </a>
+  {%endif%}
+{%endfor%}
+
+
+
